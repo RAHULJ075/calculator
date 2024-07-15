@@ -1,0 +1,215 @@
+<!DOCTYPE>
+<html style="background-color:rgb(42, 43, 42)"> 
+<style>
+.bg
+{
+    background-color: rgb(37, 38, 37);
+    height:120px;
+    width:400px;
+    margin-top: -30px;
+    color:whitesmoke;
+  
+
+}   
+.back
+{
+    height:580px;
+    width:410px;
+    border-style:outset;
+    border-radius: 10px;
+} 
+.button
+{
+    height:70px;
+    width:70px;
+    color:aliceblue;
+    background-color: rgb(37, 38, 37);
+    border-radius: 30px;
+    font-size: x-large;
+    border-style:inherit;
+    border-left-style:groove;
+
+    
+    
+}
+.button:hover
+{
+    background-color: rgb(129, 109, 18);
+    transition-duration: 1s;
+    border-left-style:groove;
+}
+.operator
+{
+    height:70px;
+    width:70px;
+    color:rgb(53, 12, 201);
+    background-color: rgb(77, 214, 13);
+    border-radius: 30px;
+    font-size: x-large;
+    border-style:inherit;
+    border-left-style:groove;
+}
+.operator:hover
+{
+    background-color: rgb(75, 144, 44);
+    transition-duration: 1s;
+    border-left-style:groove;
+}
+.symbol
+{
+    height:70px;
+    width:70px;
+    color:rgb(35, 9, 234);
+    background-color: rgb(221, 232, 9);
+    border-radius: 30px;
+    font-size: x-large;
+    border-style:inherit;
+    border-left-style:groove;
+}
+.qns
+{
+    font-size:xx-large;
+    text-align:left;
+}
+.ans
+{
+    font-size:xx-large;
+    text-align:right;
+}
+</style>   
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CALCULATOR</title>
+</head>
+<body>
+    <center>
+     <br><br><br>  
+    <div class="back">  
+    <div class="bg"> 
+    <p id="inform" onkeyup="clearall()" onkeyup="update(event)"  onkeyup="clearlast()" onkeyup="fact(event)" class="qns"></p>
+    <p id="informal" onkeyup="solve()" class="ans"></p>
+    </div>  
+    <div style="height:5px"></div>
+    <table>
+        <tr>
+            <td><button id="inform" onclick="update(event)" class="button">1</button></td>
+            <td><button id="inform" onclick="update(event)" class="button">2</button></td>
+            <td><button id="inform" onclick="update(event)" class="button">3</button></td>
+            <td><button id="inform" onclick="update(event)" class="operator">+</button></td>
+            <td><button id="inform" onclick="update(event)" class="operator">(</button></td>
+        </tr>
+        <tr>
+            <td><button id="inform" onclick="update(event)" class="button">4</button></td>
+            <td><button id="inform" onclick="update(event)" class="button">5</button></td>
+            <td><button id="inform" onclick="update(event)" class="button">6</button></td>
+            <td><button id="inform" onclick="update(event)" class="operator">-</button></td>
+            <td><button id="inform" onclick="update(event)" class="operator">)</button></td>
+        </tr>
+        <tr>
+            <td><button id="inform" onclick="update(event)" class="button">7</button></td>
+            <td><button id="inform" onclick="update(event)" class="button">8</button></td>
+            <td><button id="inform" onclick="update(event)" class="button">9</button></td>
+            <td><button id="inform" onclick="update(event)" class="operator">*</button></td>
+            <td><button id="inform" onclick="update(event)" class="operator">[</button></td>
+        </tr>
+        <tr>
+            <td><button id="inform" onclick="update(event)" class="button">.</button></td>
+            <td><button id="inform" onclick="update(event)" class="button">0</button></td>
+            <td><button id="inform" onclick="clearlast()" class="button">&#x238C</button></td>
+            <td><button id="inform" onclick="update(event)" class="operator">/</button></td>
+            <td><button id="inform" onclick="update(event)" class="operator">]</button></td>
+        </tr>
+        <tr>
+            <td><button id="inform" onclick="sqr()" class="symbol">&#8730</button></td>
+            <td><button id="informal" onclick="solve()" class="symbol">=</button></td>
+            <td><button id="inform" onclick="clearall()" class="symbol">c</button></td>
+            <td><button id="inform" onclick="pi()" class="symbol">&#8508</button></td>
+            <td><button id="inform" onclick="fact(event)" class="symbol">n!</button></td>
+        </tr>
+        <tr>
+            <td><button id="inform" onclick="update(event)" class="symbol">1</button></td>
+            <td><button id="inform" onclick="update(event)" class="symbol">1</button></td>
+            <td><button id="inform" onclick="update(event)" class="symbol">1</button></td>
+            <td><button id="inform" onclick="update(event)" class="symbol">1</button></td>
+            <td><button id="inform" onclick="update(event)" class="symbol">1</button></td>
+        </tr>
+    </table> 
+</div> 
+    </center>
+    <script>
+        var a=document.getElementById("inform")
+        var b=document.getElementById("informal");
+        function update(event)
+       {
+        var listitem=document.createElement("p") 
+        listitem.textContent=event.target.textContent
+        a.append(listitem.textContent)    
+        }
+        function clearall()
+        {
+            while(a.firstChild)
+            {
+                a.removeChild(a.firstChild);
+            }
+            while(b.firstChild)
+            {
+                b.removeChild(b.firstChild);
+            }
+        }
+        function clearlast()
+        {
+           a.removeChild(a.lastChild);
+        }
+        function pi()
+        {
+         a.append("22/7")
+        }
+        function sqr()
+        {
+            a.append("**(0.5)")
+    
+        }
+        function fact()
+        {
+            a.append("!")
+            var c=1
+            for(var i=1;i<=eval(a.textContent);i++)
+            {
+                c=c*i; 
+            }
+            b.textContent=c;
+         
+        }
+        function solve()
+        {
+            if(a.textcontent=="/0")
+            {
+                b.textContent="&#x221e"
+            }
+            if(a.textContent=="1/1/0")
+            {
+                b.textContent="0"
+            }
+            if(a.textContent=="!")
+            {
+                
+            }
+            else
+            {
+            if(eval(a.textContent)%1!=0)  
+            { 
+                b.textContent=eval(a.textContent).toFixed(4);
+            }
+            else if(eval(a.textContent)%10!=0)
+            {
+                b.textContent=eval(a.textContent);
+            }
+        }
+        
+            
+        }
+    </script>
+</body>
+</html> 
