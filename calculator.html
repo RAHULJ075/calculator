@@ -136,7 +136,7 @@
         </tr>
         <tr>
             <td><button id="inform" onclick="update(event)" class="symbol">e</button></td>
-            <td><button id="inform" onclick="update(event)" class="symbol">ln</button></td>
+            <td><button id="inform" onclick="ln()" class="symbol">ln</button></td>
             <td><button id="inform" onclick="update(event)" class="symbol">1</button></td>
             <td><button id="inform" onclick="update(event)" class="symbol">1</button></td>
             <td><button id="inform" onclick="update(event)" class="symbol">1</button></td>
@@ -193,6 +193,11 @@
             b.textContent=c;
             a.remove(lastChild)
          
+        }
+        function ln()
+        {
+            b.textContent=Math.log(eval(a.textContent));
+            a.append(")ln")
         }
         function solve()
         {
