@@ -131,7 +131,7 @@
             <td><button onclick="radToDeg()" class="symbol" style="font-size: small;">rad&#10132;deg</button></td>
             <td><button onclick="update(event)" class="symbol">1</button></td>
             <td><button onclick="update(event)" class="symbol">1</button></td>
-            <td><button onclick="update(event)" class="symbol">x/y</button></td>
+            <td><button onclick="fraction()" class="symbol">x/y</button></td>
         </tr>
     </table> 
 </div> 
@@ -139,8 +139,7 @@
     <script>
         var a = document.getElementById("inform")
         var b = document.getElementById("informal");
-        
-        function update(event) {
+    function update(event) {
             a.textContent += event.target.textContent;
         }
         function clearall() {
@@ -214,6 +213,27 @@
             let rad = parseFloat(a.textContent);
             b.textContent = Math.tan(rad).toFixed(4);
             a.textContent += "tan";
+        }
+        function gcd(num,c) 
+        {
+            if(c===0) 
+            {
+             return num;
+            }
+            return gcd(c,num%c);
+        }
+        function fraction()
+        {
+            let num = parseFloat(b.textContent);
+            let c=0;
+            while(num%1!=0)
+            {
+                num*=10;
+                c++;
+            }
+            c=10**c
+            b.textContent=String(num/gcd(num,c))+'/'+String(c/gcd(num,c))
+            
         }
     </script>
 </body>
