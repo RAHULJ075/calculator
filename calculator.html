@@ -3,11 +3,14 @@
 <style>
 .bg {
     background-color: rgb(37, 38, 37);
-    height:120px;
+    height:150px;
     width:400px;
-    margin-top: -30px;
+    margin-top: px;
     color:whitesmoke;
-}   
+    overflow-x: auto;
+    scroll-behavior:initial;
+}
+ 
 .back {
     height:700px;
     width:410px;
@@ -62,10 +65,12 @@
 .qns {
     font-size:xx-large;
     text-align:left;
+    position: sticky;
 }
 .ans {
     font-size:xx-large;
     text-align:right;
+    flex-wrap: wrap;
 }
 </style>   
 <head>
